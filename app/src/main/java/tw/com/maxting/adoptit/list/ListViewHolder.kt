@@ -17,11 +17,7 @@ class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     init {
         itemView.apply {
-            setOnClickListener {
-                val a = Adopt.toString()
-
-//                it.context.startActivity<DetailActivity>(Adopt.toString() to adopt)
-
+            setOnClickListener { it ->
                 val intent = Intent(it.context, DetailActivity::class.java).also {
                     it.putExtra(Adopt.toString(), adopt)
                 }

@@ -44,7 +44,6 @@ class MainActivity : AppCompatActivity() {
             setHasFixedSize(true)
             addItemDecoration(MarginItemDecoration(
                     resources.getDimension(R.dimen.grid_padding).toInt()))
-
         }
     }
 
