@@ -7,6 +7,7 @@ import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import tw.com.maxting.adoptit.api.AdoptService
+import tw.com.maxting.adoptit.detail.DetailViewModel
 import tw.com.maxting.adoptit.list.MainViewModel
 import tw.com.maxting.adoptit.singleton.Repository
 
@@ -17,6 +18,7 @@ val utilModule = module {
 
 val viewModelModule = module {
     viewModel { MainViewModel(get()) }
+    viewModel { DetailViewModel(get()) }
 }
 
 val appModule = listOf(utilModule, viewModelModule)

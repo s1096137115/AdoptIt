@@ -1,8 +1,10 @@
 package tw.com.maxting.adoptit.list
 
 import android.os.Bundle
+import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import com.google.android.material.transition.MaterialContainerTransformSharedElementCallback
 import org.koin.android.viewmodel.ext.android.viewModel
 import tw.com.maxting.adoptit.R
 import tw.com.maxting.adoptit.databinding.ActivityMainBinding
@@ -22,9 +24,18 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTransform()
         setContentView(binding.root)
         setupRecyclerView()
         observeViewModel()
+    }
+
+    private fun setTransform() {
+        window.requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS)
+        setExitSharedElementCallback(
+                MaterialContainerTransformSharedElementCallback()
+        )
+        window.sharedElementsUseOverlay = true
     }
 
     private fun setupRecyclerView() {

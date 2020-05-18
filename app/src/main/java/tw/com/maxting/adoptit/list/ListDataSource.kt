@@ -21,7 +21,6 @@ class ListDataSource(
                 repository.fetchAdopts(loadSize, 0)
             }.onSuccess { list ->
                 list
-//                        .filter { it.albumFile.isNotEmpty() }
                         .toMutableList()
                         .also { filterList ->
                             callback.onResult(
@@ -40,7 +39,6 @@ class ListDataSource(
                 repository.fetchAdopts(params.loadSize, params.startPosition)
             }.onSuccess { list ->
                 list
-//                        .filter { it.albumFile.isNotEmpty() }
                         .toMutableList()
                         .also { filterList ->
                             callback.onResult(filterList)
@@ -53,7 +51,6 @@ class ListDataSource(
         super.invalidate()
         scope.cancel()
     }
-
 
     class Factory(
             private val repository: Repository,
@@ -72,6 +69,6 @@ class ListDataSource(
     companion object {
         const val PAGE_SIZE = 20
         const val LOAD_COUNT = 20
-        const val TOTAL_COUNT = 100
+        const val TOTAL_COUNT = 10000
     }
 }
