@@ -1,13 +1,11 @@
-package tw.com.moneybook.moneybook.data.adaptation.paging
+package tw.com.maxting.adoptit.paging
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.paging.DataSource
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
 
 fun <Key, Value> DataSource.Factory<Key, Value>.makePagedList(
-        listStatus: MutableLiveData<ListStatus>,
         pageSize: Int,
         distance: Int,
         enablePlaceholders: Boolean = true
@@ -30,6 +28,5 @@ fun <Key, Value> DataSource.Factory<Key, Value>.makePagedList(
             this,
             makePagedListConfig(pageSize, distance, enablePlaceholders)
     )
-            .setBoundaryCallback(ListBoundaryCallback(listStatus))
             .build()
 }
